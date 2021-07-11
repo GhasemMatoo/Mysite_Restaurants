@@ -12,7 +12,8 @@ class post(models.Model):
     created_date = models.DateTimeField(_("زمان تولید"), auto_now_add=True)
     updated_date = models.DateTimeField(_("تاریخ بروز رسانی"), auto_now=True)
     published_date = models.DateTimeField(_("زمان انتشار"),null=False)
-    
+    class Meta:
+        ordering = ['-created_date']
     def __str__(self):
         return self.name
     
