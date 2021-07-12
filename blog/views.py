@@ -1,8 +1,12 @@
-from django.shortcuts import render
-
+from django.shortcuts import render,get_object_or_404
+from blog.models import post
 # Create your views here.
 def blog_views(request):
-    return render(request,'blog/blog.html')
+    posts= post.objects.filter(status=1)
+    contex={'posts':posts}
+    return render(request,'blog/blog.html',contex)
 
-def blog_details_views(request):
-    return render(request,'blog/details.html')
+def blog_details_views(request,pid):
+    Post_singl= get_object_or_404(post,id=pid,status=1)
+    contex={'Post_singl':Post_singl}
+    return render(request,'blog/details.html',contex)

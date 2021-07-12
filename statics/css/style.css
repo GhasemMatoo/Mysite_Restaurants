@@ -1015,9 +1015,13 @@ button:focus{
     padding: 0px 5px;
     color: #222222;
 }
-.inner-blog-detail ul li span {
+.inner-blog-detail ul li span{
     color: #cfa671;
 }
+.inner-blog-detail .details-page ul li{
+    font-size: 17px;
+}
+
 .inner-blog-detail p {
     padding: 10px 0px;
 }
