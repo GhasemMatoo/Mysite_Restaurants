@@ -1,0 +1,7 @@
+<div class="blog-categories">
+{% for name,cunt in categories.items %}
+<ul>
+	<li><a href="{% url 'blog:blog-category' cat_name=name %}"><span>{{name}}      </span> :::::::::::::: >><span>   {{cunt}}</span> </a> </li>
+</ul>
+{% endfor %}
+</div>

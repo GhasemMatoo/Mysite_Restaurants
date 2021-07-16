@@ -1018,7 +1018,8 @@ button:focus{
 .inner-blog-detail ul li span{
     color: #cfa671;
 }
-.inner-blog-detail .details-page ul li{
+
+.inner-blog-detail .details-page ul li {
     font-size: 17px;
 }
 
@@ -1236,6 +1237,7 @@ blockquote {
 .recent-img {
     float: left;
     position: relative;
+    
 }
 .recent-img::before {
     position: absolute;
@@ -1271,7 +1273,7 @@ blockquote {
 }
 .recent-info ul li {
     display: inline-block;
-    font-size: 11px;
+    font-size: 15px;
     padding: 0px;
     color: #222222;
 }

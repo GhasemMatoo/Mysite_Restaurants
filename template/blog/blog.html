@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load blog_tag %}
 {% block content %}
 	<!-- Start All Pages -->
 	<div class="all-page-title page-breadcrumb">
@@ -32,22 +33,25 @@
 							<div class="side-blog-img">
 								<img class="img-fluid" src="{{post.image.url}}" alt="">							
 								<div class="date-blog-up">
-									27 Fab
+									{{post.published_date|date:"N t" }}
 								</div>
 							</div>
 							<div class="inner-blog-detail details-page">
 								<h3>{{post.title}}</h3>
 									<div class="details-page">
 										<ul>
-											<li>Category >>> <a href="#" ><span>{{post.category.all|join:" , "}}</span></a></li>
+										<i>Category >>></i> 
+										{% for cat in post.category.all %}
+											<li><a href="{% url 'blog:blog-category' cat_name=cat.name %}" ><span>{{cat.name}}</span></a></li>
+										{% endfor %}
 										</ul>
 									</div>
 								<ul>
 									<li><i class="zmdi zmdi-account"></i>Posted By : <span>{{post.author.get_full_name}} </span></li>
 									<li>|</li>
-									<li><i class="zmdi zmdi-time"></i>Time : <span>{{post.published_date}} </span></li>
+									<li><i class="zmdi zmdi-time"></i>Time : <span>{{post.published_date|date:"f A" }} </span></li>
 								</ul>
-								<p>{{post.content}} </p>
+								<p>{{post.content|truncatewords:"20"}} </p>
 								<div class="blog-tag-box">
 									<ul class="list-inline tag-list">
 										<li class="list-inline-item"><a href="{% url 'blog:blog-details' pid=post.id %}">View More</a></li>
@@ -61,94 +65,15 @@
 				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 blog-sidebar">
 					<div class="right-side-blog">
 						<h3>Search</h3>
-						<div class="blog-search-form">
-							<input name="search" placeholder="Search blog" type="text">
-							<button class="search-btn">
-								<i class="fa fa-search" aria-hidden="true"></i>
-							</button>
-						</div>
+							{% include "blog/side_bar/blog-search-form.html" %}
 						<h3>Categories</h3>
-						<div class="blog-categories">
-							<ul>
-								<li><a href="#"><span>Food</span></a></li>
-								<li><a href="#"><span>Pizza</span></a></li>
-								<li><a href="#"><span>Drink</span></a></li>
-								<li><a href="#"><span>Lorem Sit</span></a></li>
-								<li><a href="#"><span>Burger</span></a></li>
-								<li><a href="#"><span>Music</span></a></li>
-							</ul>
-						</div>
+							{% Categories_Post %}
 						<h3>Recent Post</h3>
-						<div class="post-box-blog">
-							<div class="recent-post-box">
-								<div class="recent-box-blog">
-									<div class="recent-img">
-										<img class="img-fluid" src="{% static 'images/post-img-01.jpg' %}" alt="">
-									</div>
-									<div class="recent-info">
-										<ul>
-											<li><i class="zmdi zmdi-account"></i>Posted By : <span>Rubel Ahmed</span></li>
-											<li>|</li>
-											<li><i class="zmdi zmdi-time"></i>Time : <span>11.30 am</span></li>
-										</ul>
-										<h4>Duis feugiat neque sed dolor cursus, sed lacinia nisl pretium.</h4>
-									</div>
-								</div>
-								<div class="recent-box-blog">
-									<div class="recent-img">
-										<img class="img-fluid" src="{% static 'images/post-img-02.jpg' %}" alt="">
-									</div>
-									<div class="recent-info">
-										<ul>
-											<li><i class="zmdi zmdi-account"></i>Posted By : <span>Rubel Ahmed</span></li>
-											<li>|</li>
-											<li><i class="zmdi zmdi-time"></i>Time : <span>11.30 am</span></li>
-										</ul>
-										<h4>Duis feugiat neque sed dolor cursus, sed lacinia nisl pretium.</h4>
-									</div>
-								</div>
-								<div class="recent-box-blog">
-									<div class="recent-img">
-										<img class="img-fluid" src="{% static 'images/post-img-03.jpg' %}" alt="">
-									</div>
-									<div class="recent-info">
-										<ul>
-											<li><i class="zmdi zmdi-account"></i>Posted By : <span>Rubel Ahmed</span></li>
-											<li>|</li>
-											<li><i class="zmdi zmdi-time"></i>Time : <span>11.30 am</span></li>
-										</ul>
-										<h4>Duis feugiat neque sed dolor cursus, sed lacinia nisl pretium.</h4>
-									</div>
-								</div>
-								<div class="recent-box-blog">
-									<div class="recent-img">
-										<img class="img-fluid" src="{% static 'images/post-img-01.jpg' %}" alt="">
-									</div>
-									<div class="recent-info">
-										<ul>
-											<li><i class="zmdi zmdi-account"></i>Posted By : <span>Rubel Ahmed</span></li>
-											<li>|</li>
-											<li><i class="zmdi zmdi-time"></i>Time : <span>11.30 am</span></li>
-										</ul>
-										<h4>Duis feugiat neque sed dolor cursus, sed lacinia nisl pretium.</h4>
-									</div>
-								</div>
-							</div>
-						</div>
+							{% Recent_Post %}
 						<h3>Recent Tag</h3>
-						<div class="blog-tag-box">
-							<ul class="list-inline tag-list">
-								<li class="list-inline-item"><a href="#">Food</a></li>
-								<li class="list-inline-item"><a href="#">Drink</a></li>
-								<li class="list-inline-item"><a href="#">Nature</a></li>
-								<li class="list-inline-item"><a href="#">Italian</a></li>
-								<li class="list-inline-item"><a href="#">Bootstrap4</a></li>
-								<li class="list-inline-item"><a href="#">Fashion</a></li>
-							</ul>
-						</div>
-					</div>
+							{% include "blog/side_bar/blog-tag-box.html" %}
+					</div>					
 				</div>
-			
 			</div>
 		</div>
 	</div>

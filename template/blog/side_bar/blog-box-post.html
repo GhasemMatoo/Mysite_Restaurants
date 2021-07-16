@@ -1,0 +1,19 @@
+{% load static %}
+<div class="post-box-blog">
+	<div class="recent-post-box">
+		{% for post in postes %}
+		<div class="recent-box-blog">
+			<div class="recent-img">
+				<img   style="max-width: 150px;" class="img-fluid" src="{{post.image.url}}" alt="">
+			</div>
+			<div class="recent-info">
+				<h4><a href="{% url 'blog:blog-details' pid=post.id %}">{{post.title}}</a></h4>
+				<ul>
+					<li><i class="zmdi zmdi-account"></i>Posted By : <span>{{post.author.get_full_name}} </span></li>
+					<li><i class="zmdi zmdi-time" ></i>Time : <span> {{post.published_date|date:"g:i A" }} </span></li>
+				</ul>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
