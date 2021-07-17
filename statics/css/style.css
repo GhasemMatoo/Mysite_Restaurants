@@ -375,6 +375,12 @@ button:focus{
 .heading-title{
 	margin-bottom: 50px;
 }
+.heading-title a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
 .heading-title h2{
 	color: #010101;
 	font-size: 28px;
@@ -385,7 +391,9 @@ button:focus{
 	font-weight: 200;
 	margin: 0px;
 }
-
+.heading-title .text-center a {
+    font-size: 17px;
+}
 .filter-button-group {
     border: 1px solid #e4e4e4;
     border-radius: 4px;
@@ -1286,6 +1294,9 @@ blockquote {
 .blog-tag-box ul li {
     display: inline-block;
     margin-bottom: 3px;
+}
+.pagination {
+    font-size: 18px;
 }
 .blog-tag-box ul li a {
     padding: 5px 15px;
