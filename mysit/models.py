@@ -5,7 +5,7 @@ from django.utils.translation import gettext as _
 
 class contact(models.Model):
     name = models.CharField(_("نام"), max_length=50)
-    email = models.EmailField(_("پست الکترونیکی"), max_length=254)
+    email = models.EmailField(_("پست الکترونیکی"))
     subject = models.CharField(_("موضوع"), max_length=100)
     massage = models.TextField(_("پیام"))
     created_date = models.DateTimeField(_("زمان تولید"), auto_now=False, auto_now_add=True)

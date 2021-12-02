@@ -1,5 +1,6 @@
 from django.urls import path
 from mysit.views import *
+
 app_name = 'mysit'
 
 urlpatterns = [

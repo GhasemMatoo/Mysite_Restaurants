@@ -26,6 +26,11 @@ def blog_details_views(request,pid):
 def blog_search_views(request):
     posts= post.objects.filter(status=1)
     if request.method=='GET':
-        posts=posts.filter(content__contains=request.GET.get('s'))
+        Ps=posts.filter(content__contains=request.GET.get('s'))
+        if(len(Ps)==0):
+            Ps=posts.filter(title__contains=request.GET.get('s'))
+        if(len(Ps)==0):
+            Ps=posts.filter(category__name__contains=request.GET.get('s'))
+        posts=Ps
     contex={'posts':posts}
     return render(request,'blog/blog.html',contex)
