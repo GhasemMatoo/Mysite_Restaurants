@@ -1,0 +1,46 @@
+<div class="comment-respond-box">
+    <h3>Leave your comment </h3>
+    <div class="comment-respond-form">
+        <form id="commentrespondform" class="comment-form-respond row" method="post" action={% url 'blog:blog-details' pid=Post_singl.id %}>
+            {% csrf_token %}
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="form-group">
+                    <input id="name_com" class="form-control" name="name" placeholder="Name" type="text">
+                </div>
+                <div class="form-group">
+                    <input id="email_com" class="form-control" name="subject" placeholder="Subject" type="text">
+                </div>
+                <div class="form-group">
+                    <input id="email_com" class="form-control" name="email" placeholder="Your Email" type="email">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="form-group">
+                    <textarea class="form-control" id="textarea_com" name="messages" placeholder="Your Message" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    {{form.captcha}}
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <button type="submit" class="btn btn-submit">Submit comment</button>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                    <div class="alert alert-danger">
+                        <strong>Danger!</strong> {{message}}
+                    </div>
+                    {% endif %}
+                    {% if message.tags == 'success' %}
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> {{message}}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 from django import template
 from blog.models import post
 from blog.models import Category
+
 ##------------------------------
 register = template.Library()
 
@@ -18,3 +19,4 @@ def Categories_Post():
     for name in categories :
         cat_dict[name]=postes.filter(category=name).count()
     return {'categories':cat_dict}
+

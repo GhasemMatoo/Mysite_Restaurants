@@ -1,0 +1,23 @@
+{% load static %}
+{% load humanize %}
+<div class="blog-comment-box">
+    <h3>Comments</h3>
+    {% for comment in comments %}
+    <div class="comment-item">
+        <div class="comment-item-left">
+            <img src="{% static 'images/avt-img.jpg' %}" alt="">
+        </div>
+        <div class="comment-item-right">
+            <div class="pull-left">
+                <a href="#">{{comment.name}} </a>
+            </div>
+            <div class="pull-right">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>Time : <span>{{comment.created_date|date:"f A"}} </span>
+            </div>
+            <div class="des-l">
+                <p>{{comment.messages}} </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

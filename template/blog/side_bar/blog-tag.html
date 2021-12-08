@@ -1,0 +1,7 @@
+<div class="blog-tag-box">
+	<ul class="list-inline tag-list">
+	{% for tag in Tags %}
+		<li><a href="{% url 'blog:blog-tags' tag_name=tag %} ">{{tag}} </a></li>
+	{% endfor %}
+	</ul>
+</div>

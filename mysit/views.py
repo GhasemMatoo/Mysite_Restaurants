@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from mysit.models import contact
+
 from mysit.forms import ContactForm
+from django.contrib import messages
 # Create your views here.
 def index_views(request):
     return render(request, 'mysit/index.html')
@@ -14,8 +14,9 @@ def contact_views(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.add_message(request, messages.SUCCESS, 'Yor ticket submited successfully')
         else:
-            print("no")
+            messages.add_message(request, messages.ERROR, 'Yor ticket dident submited.')
     form = ContactForm()
     return render(request, 'mysit/contact.html',{'form':form})
 

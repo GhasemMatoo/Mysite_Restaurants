@@ -35,9 +35,12 @@
 								<div class="date-blog-up">
 									{{post.published_date|date:"N t" }}
 								</div>
+								<div class="date-blog-up" style="top: 394px;right: 631px;">
+									Views.{{post.countent_views}}
+								</div>
 							</div>
 							<div class="inner-blog-detail details-page">
-								<h3>{{post.title}}</h3>
+								<h3>{{post.title|safe}}</h3>
 									<div class="details-page">
 										<ul>
 										<i>Category >>></i> 
@@ -47,11 +50,11 @@
 										</ul>
 									</div>
 								<ul>
-									<li><i class="zmdi zmdi-account"></i>Posted By : <span>{{post.author.get_full_name}} </span></li>
+									<li><i class="zmdi zmdi-account"></i><a href="{% url 'blog:author' author_username=post.author.username %}">Posted By :</a><span>{{post.author.get_full_name}} </span></li>
 									<li>|</li>
 									<li><i class="zmdi zmdi-time"></i>Time : <span>{{post.published_date|date:"f A" }} </span></li>
 								</ul>
-								<p>{{post.content|truncatewords:"20"}} </p>
+								<p>{{post.content|truncatewords:"20"|safe}} </p>
 								<div class="blog-tag-box">
 									<ul class="list-inline tag-list">
 										<li class="list-inline-item"><a href="{% url 'blog:blog-details' pid=post.id %}">View More</a></li>
@@ -71,7 +74,7 @@
 						<h3>Recent Post</h3>
 							{% Recent_Post %}
 						<h3>Recent Tag</h3>
-							{% include "blog/side_bar/blog-tag-box.html" %}
+							{% include "blog/side_bar/blog-tag.html" %}
 					</div>					
 				</div>
 				<div class="col-lg-12">

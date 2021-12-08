@@ -32,32 +32,38 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" name="name" maxlength="50" required="" id="id_name" placeholder="Your Name" class="form-control">
-									<div class="help-block with-errors"></div>
+									<input type="text" name="name"  placeholder="Your Name" class="form-control">
 								</div>                                 
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" name="subject" maxlength="100" required="" id="id_subject" placeholder="Subject" class="form-control" >
-									<div class="help-block with-errors"></div>
+									<input type="text" name="subject" placeholder="Subject" class="form-control" >
 								</div>                                 
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="email" name="email" maxlength="254" id="id_email" placeholder="Your Email" class="form-control">
-									<div class="help-block with-errors"></div>
+									<input type="email" name="email"  placeholder="Your Email" class="form-control">
 								</div> 
 							</div>
 							<div class="col-md-12">
-								<div class="form-group"> 
-									<textarea name="massage" rows="4" required="Write your message" id="id_massage" placeholder="Your Message" class="form-control"></textarea>  
-									<!-- <textarea class="form-control" id="id_massage" name="message" placeholder="Your Message" rows="4" data-error="Write your message" required></textarea>-->
-									<div class="help-block with-errors"></div>
-								</div>
+								{{form.massage|safe}}	
+								<ul class="messages">
+									{% for message in messages %}
+									{% if message.tags == 'error' %}
+									<div class="alert alert-danger">
+										<strong>Danger!</strong> {{message}}
+									</div>
+									{% endif %}
+									{% if message.tags == 'success' %}
+									<div class="alert alert-success">
+										<strong>Success!</strong> {{message}}
+									</div>
+									{% endif %}
+									{% endfor %}
+								</ul>
 								<div class="submit-button text-center">
+									<a  class="btn btn-common">{{form.captcha}} </a>
 									<button class="btn btn-common" type="submit">Send Message</button>
-									<div class="h3 text-center hidden"></div> 
-									<div class="clearfix"></div> 
 								</div>
 							</div>
 						</div>     

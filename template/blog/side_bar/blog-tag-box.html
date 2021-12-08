@@ -1,10 +1,7 @@
 <div class="blog-tag-box">
 	<ul class="list-inline tag-list">
-		<li class="list-inline-item"><a href="#">Food</a></li>
-		<li class="list-inline-item"><a href="#">Drink</a></li>
-		<li class="list-inline-item"><a href="#">Nature</a></li>
-		<li class="list-inline-item"><a href="#">Italian</a></li>
-		<li class="list-inline-item"><a href="#">Bootstrap4</a></li>
-		<li class="list-inline-item"><a href="#">Fashion</a></li>
+	{% for tag in Post_singl.tags.all %}
+		<li><a href="{% url 'blog:blog-tags' tag_name=tag.name %} ">{{tag.name}} </a></li>
+	{% endfor %}
 	</ul>
 </div>
