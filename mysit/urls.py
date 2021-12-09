@@ -3,6 +3,7 @@ from mysit.views import *
 
 app_name = 'mysit'
 
+
 urlpatterns = [
     path('',index_views, name='index'),
     path('about',about_views, name='about'),

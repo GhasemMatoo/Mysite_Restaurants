@@ -39,14 +39,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sites' ,
+    'django.contrib.sitemaps',
     'django_summernote',
+    'django_extensions',
     'captcha',
     'taggit',
+    'robots',
     'mysit.apps.MysitConfig',
     'blog.apps.BlogConfig',
     'commingsoon.apps.CommingsoonConfig',
 ]
-
+#config robots
+ROBOTS_USE_SITEMAP = False
+ROBOTS_USE_HOST = False
+# django_sites_config
+SITE_ID = 2 
 # django-multi-captcha-admin
 MULTI_CAPTCHA_ADMIN = {
     'engine': 'simple-captcha',

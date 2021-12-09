@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
+from django.urls import reverse
 from django.utils.translation import gettext as _
 # Create your models here.
 class Category(models.Model):
@@ -35,6 +36,8 @@ class post(models.Model):
         ordering = ['-created_date']
     def __str__(self):
         return self.name
+    def get_absolute_url(self):
+        return reverse('blog:blog-details', kwargs={'pid': self.id})
 
 class comment(models.Model):
     Poost = models.ForeignKey(post, on_delete=models.CASCADE)
