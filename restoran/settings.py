@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y8rxn89e_f=0vl1%%y9rj)-8gopf&+as7t@k(9vl0ckv-y+(kq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -53,7 +53,7 @@ MULTI_CAPTCHA_ADMIN = {
 }
 # Config urls CommingSoon and Site
 def Cooming_soon():
-    return True
+    return False
 # django-summernote Config
 SUMMERNOTE_THEME = 'bs5'
 X_FRAME_OPTIONS = "SAMEORIGIN"
