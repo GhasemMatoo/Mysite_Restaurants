@@ -31,3 +31,5 @@ def reservation_views(request):
 
 def stuff_views(request):
     return render(request, 'mysit/stuff.html')
+def handler404(request, exception):
+    return render(request, 'mysit/index.html')

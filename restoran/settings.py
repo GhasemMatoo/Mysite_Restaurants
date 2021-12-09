@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-y8rxn89e_f=0vl1%%y9rj)-8gopf&+as7t@k(9vl0ckv-y+(kq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -44,13 +44,16 @@ INSTALLED_APPS = [
     'taggit',
     'mysit.apps.MysitConfig',
     'blog.apps.BlogConfig',
+    'commingsoon.apps.CommingsoonConfig',
 ]
 
 # django-multi-captcha-admin
 MULTI_CAPTCHA_ADMIN = {
     'engine': 'simple-captcha',
 }
-
+# Config urls CommingSoon and Site
+def Cooming_soon():
+    return True
 # django-summernote Config
 SUMMERNOTE_THEME = 'bs5'
 X_FRAME_OPTIONS = "SAMEORIGIN"
@@ -101,7 +104,6 @@ SUMMERNOTE_CONFIG = {
 
 }
 '''
-
 
 
 MIDDLEWARE = [
@@ -183,7 +185,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR /'static'
+STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 STATICFILES_DIRS = [
