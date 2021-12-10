@@ -13,7 +13,3 @@ def Commingsoon_views(request):
             messages.add_message(request, messages.ERROR, 'Yor ticket dident submited.')
     form=NewsletterForm()
     return render(request,'soon/soon.html',{'form': form})
-
-
-def handler404(request, exception):
-    return HttpResponseRedirect("/")
