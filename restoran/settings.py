@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'mysit.apps.MysitConfig',
     'blog.apps.BlogConfig',
     'commingsoon.apps.CommingsoonConfig',
+    'account.apps.AccountConfig',
 ]
 #config robots
 ROBOTS_USE_SITEMAP = False

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load mysit_tag %}
 {% block content %}
 	<!-- Start header -->
 	<div class="all-page-title page-breadcrumb">
@@ -26,7 +27,7 @@
 						<h4>Little Story</h4>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>
 						<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. Sed aliquam metus lorem, a pellentesque tellus pretium a. Nulla placerat elit in justo vestibulum, et maximus sem pulvinar.</p>
-						<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a>
+						<a class="btn btn-lg btn-circle btn-outline-new-white" href="{% url 'mysit:reservation' %}">Reservation</a>
 					</div>
 				</div>
 				<div class="col-md-12">
@@ -63,108 +64,7 @@
 					</div>
 				</div>
 			</div>
-				
-			<div class="row special-list">
-				<div class="col-lg-4 col-md-6 special-grid drinks">
-					<div class="gallery-single fix">
-						<img src="{% static 'images/img-01.jpg' %}" class="img-fluid" alt="Image">
-						<div class="why-text">
-							<h4>Special Drinks 1</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $7.79</h5>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-lg-4 col-md-6 special-grid drinks">
-					<div class="gallery-single fix">
-						<img src="{% static 'images/img-02.jpg' %}" class="img-fluid" alt="Image">
-						<div class="why-text">
-							<h4>Special Drinks 2</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $9.79</h5>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-lg-4 col-md-6 special-grid drinks">
-					<div class="gallery-single fix">
-						<img src="{% static 'images/img-03.jpg' %}" class="img-fluid" alt="Image">
-						<div class="why-text">
-							<h4>Special Drinks 3</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $10.79</h5>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-lg-4 col-md-6 special-grid lunch">
-					<div class="gallery-single fix">
-						<img src="{% static 'images/img-04.jpg' %}" class="img-fluid" alt="Image">
-						<div class="why-text">
-							<h4>Special Lunch 1</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $15.79</h5>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-lg-4 col-md-6 special-grid lunch">
-					<div class="gallery-single fix">
-						<img src="{% static 'images/img-05.jpg' %}" class="img-fluid" alt="Image">
-						<div class="why-text">
-							<h4>Special Lunch 2</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $18.79</h5>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-lg-4 col-md-6 special-grid lunch">
-					<div class="gallery-single fix">
-						<img src="{% static 'images/img-06.jpg' %}" class="img-fluid" alt="Image">
-						<div class="why-text">
-							<h4>Special Lunch 3</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $20.79</h5>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-lg-4 col-md-6 special-grid dinner">
-					<div class="gallery-single fix">
-						<img src="{% static 'images/img-07.jpg' %}" class="img-fluid" alt="Image">
-						<div class="why-text">
-							<h4>Special Dinner 1</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $25.79</h5>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-lg-4 col-md-6 special-grid dinner">
-					<div class="gallery-single fix">
-						<img src="{% static 'images/img-08.jpg' %}" class="img-fluid" alt="Image">
-						<div class="why-text">
-							<h4>Special Dinner 2</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $22.79</h5>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-lg-4 col-md-6 special-grid dinner">
-					<div class="gallery-single fix">
-						<img src="{% static 'images/img-09.jpg' %}" class="img-fluid" alt="Image">
-						<div class="why-text">
-							<h4>Special Dinner 3</h4>
-							<p>Sed id magna vitae eros sagittis euismod.</p>
-							<h5> $24.79</h5>
-						</div>
-					</div>
-				</div>
-				
-			</div>
+			{% Menu_Post %}
 		</div>
 	</div>
 	<!-- End Menu -->

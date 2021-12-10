@@ -44,13 +44,22 @@
 					<img src="{% static 'images/logo.png' %}" alt="" />
 				</a>
 				<ul class="navbar-nav ml-auto">
+					{% if request.user.is_authenticated %}
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Welcome Ghasem</a>
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Welcome {{ request.user.username }} </a>
 						<div class="dropdown-menu" aria-labelledby="dropdown-a">
-							<a class="dropdown-item" href="">Stuff</a>
-							<a class="dropdown-item" href="">Gallery</a>
+							<a class="dropdown-item" href="{% url 'account:logout' %}">Logout</a>
+						</div>
+					</li>					
+					{% else %}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Go_To</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown-a">
+							<a class="dropdown-item" href="{% url 'account:login' %}">Login</a>
+							<a class="dropdown-item" href="{% url 'account:register' %}">Register</a>
 						</div>
 					</li>
+					{% endif %}
 				</ul>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
