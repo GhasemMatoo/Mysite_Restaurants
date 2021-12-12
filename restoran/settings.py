@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'captcha',
     'taggit',
     'robots',
+    'compressor',
     'mysit.apps.MysitConfig',
     'blog.apps.BlogConfig',
     'commingsoon.apps.CommingsoonConfig',
@@ -184,10 +185,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATICFILES_DIRS = [
-    BASE_DIR / "statics",
-]
-
+# Django Compressor Configuration
+COMPRESS_ENABLED = True
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
+COMPRESS_CSS_FILTERS = ["compressor.filters.cssmin.CSSMinFilter"]
+COMPRESS_JS_FILTERS = ["compressor.filters.jsmin.JSMinFilter"]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

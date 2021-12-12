@@ -1,66 +1,50 @@
+{% extends 'main.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Login</title>
-      <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="{% static 'css/material-design-iconic-font.min.css' %}">
-      <link rel="stylesheet" href="{% static 'css/r-style.css' %}">
-      <meta name="robots" content="noindex, follow">
-   </head>
-   <body>
-      <div class="main">
-         <section class="sign-in">
-            <div class="container">
-               <div class="signin-content">
-                  <div class="signin-image">
-                     <figure><img src="{% static 'images/signin-image.jpg' %}" alt="sing up image"></figure>
-                  </div>
-                  <div class="signin-form">
-                     <h2 class="form-title">Sign up</h2>
-                     <form method="POST" action="{% url 'account:login' %} " class="register-form" >
-                     {% csrf_token %}
-                        <div class="form-group">
-                           <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                           <input type="text" name="username"  placeholder="Your Name / Email Address" />
+{% block content %}
+   <div class="main">
+      <section class="sign-in">
+         <div class="container">
+            <div class="signin-content">
+               <div class="signin-image">
+                  <figure><img src="{% static 'images/signin-image.jpg' %}" alt="sing up image"></figure>
+               </div>
+               <div class="signin-form">
+                  <h2 class="form-title">Sign up</h2>
+                  <form method="POST" action="{% url 'account:login' %} " class="register-form" >
+                  {% csrf_token %}
+                     <div class="form-group">
+                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="username"  placeholder="Your Name / Email Address" />
+                     </div>
+                     <div class="form-group">
+                        <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="password" name="password" placeholder="Password" />
+                     </div>
+                     <div class="form-group">
+                        <input type="checkbox" name="remember-me"  class="agree-term" />
+                        <label for="remember-me" class="label-agree-term"><a href="#" style="color: #ff00009c;">Password Reset</a></label>
+                     </div>
+                     <div class="form-group form-button">
+                        <input type="submit" name="signin" onclick="myFunction()" class="form-submit" value="Login"/>
+                        <a href=" {% url 'account:register' %}"><input type="button" name="signin"  class="form-submit" value="Register" /></a>
+                        <a href=" {% url 'mysit:index' %}"><button class="form-submit" type="button" style="background-color: #33db33ed;">Go to Home</button></a>
+                        
+                     </div>
+                     {% if messages %}
+                     <ul class="messages">
+                        {% for message in messages %}
+                        {% if message.tags == 'error' %} 
+                        <div class="alert alert-danger">
+                          <strong>Warning!</strong> {{message}}
                         </div>
-                        <div class="form-group">
-                           <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                           <input type="password" name="password" placeholder="Password" />
-                        </div>
-                        <div class="form-group">
-                           <input type="checkbox" name="remember-me"  class="agree-term" />
-                           <label for="remember-me" class="label-agree-term"><a href="#" style="color: #ff00009c;">Password Reset</a></label>
-                        </div>
-                        <div class="form-group form-button">
-                           <input type="submit" name="signin" onclick="myFunction()" class="form-submit" value="Login"/>
-                           <a href=" {% url 'account:register' %}"><input type="button" name="signin"  class="form-submit" value="Register" /></a>
-                        </div>
-                        {% if messages %}
-                        <ul class="messages">
-                           {% for message in messages %}
-                           {% if message.tags == 'error' %} 
-                           <div class="alert alert-danger">
-                             <strong>Warning!</strong> {{message}}
-                           </div>
-                           {% endif %}
-                           {% endfor %}
-                        </ul>
                         {% endif %}
-                     </form>
-                  </div>
+                        {% endfor %}
+                     </ul>
+                     {% endif %}
+                  </form>
                </div>
             </div>
-         </section>
-      </div>
-      <script src="{% static 'js/vendor/jquery.min.js' %}"></script>
-      <script src="{% static 'js/main2.js' %}"></script>
-   </body>
-</html>
-
+         </div>
+      </section>
+   </div>
+{% endblock content %}
