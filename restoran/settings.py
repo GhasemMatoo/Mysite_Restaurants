@@ -54,8 +54,7 @@ INSTALLED_APPS = [
 #config robots
 ROBOTS_USE_SITEMAP = False
 ROBOTS_USE_HOST = False
-# django_sites_config
-SITE_ID = 2 
+
 # django-multi-captcha-admin
 MULTI_CAPTCHA_ADMIN = {
     'engine': 'simple-captcha',
@@ -65,7 +64,7 @@ def Cooming_soon():
     return False
 # django-summernote Config
 SUMMERNOTE_THEME = 'bs5'
-X_FRAME_OPTIONS = "SAMEORIGIN"
+#X_FRAME_OPTIONS = "SAMEORIGIN"
 # The server is not filtering in my system because of this I comments SUMMERNOTE_CONFIG code
 '''
 SUMMERNOTE_CONFIG = {
@@ -146,16 +145,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'restoran.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -194,12 +183,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 STATICFILES_DIRS = [
     BASE_DIR / "statics",
 ]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

@@ -11,5 +11,4 @@ urlpatterns = [
     path('gallery',gallery_views, name='gallery'),
     path('menu',menu_views, name='menu'),
     path('reservation',reservation_views, name='reservation'),
-    path('stuff',stuff_views, name='stuff')
 ]
