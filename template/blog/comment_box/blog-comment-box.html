@@ -2,6 +2,9 @@
 {% load humanize %}
 <div class="blog-comment-box">
     <h3>Comments</h3>
+    {% if comments|length == 0 %}
+    <p>You can be the first to comments on this post</p>
+    {% endif %}
     {% for comment in comments %}
     <div class="comment-item">
         <div class="comment-item-left">
