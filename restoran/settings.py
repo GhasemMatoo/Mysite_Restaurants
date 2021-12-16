@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y8rxn89e_f=0vl1%%y9rj)-8gopf&+as7t@k(9vl0ckv-y+(kq'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -64,10 +64,10 @@ MULTI_CAPTCHA_ADMIN = {
 def Cooming_soon():
     return False
 # django-summernote Config
-SUMMERNOTE_THEME = 'bs5'
+SUMMERNOTE_THEME = 'bs4'
 #X_FRAME_OPTIONS = "SAMEORIGIN"
 # The server is not filtering in my system because of this I comments SUMMERNOTE_CONFIG code
-'''
+
 SUMMERNOTE_CONFIG = {
     # Using SummernoteWidget - iframe mode, default
     'iframe': True,
@@ -112,7 +112,7 @@ SUMMERNOTE_CONFIG = {
     },
 
 }
-'''
+
 
 
 MIDDLEWARE = [
@@ -169,7 +169,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa-ir'
 
 TIME_ZONE = 'UTC'
 
